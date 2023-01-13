@@ -1,11 +1,11 @@
 -- my journey into haskell
 module MAIN where
 import Prelude 
--- to try in ghci do:
+-- to try (in ghci REPL) do:
 -- :l namefile.hs
 -- then you can use the function defined here
 
--- to compile and run instead the main is needed
+-- to compile (ghc) and run instead the main is needed
 main :: IO ()    -- This says that main is an IO action.
 main = return () -- This tells main to do nothing.
 
@@ -27,6 +27,7 @@ fun3 :: [Int] -> [Int]
 fun3 [] = []
 fun3 list = (\x -> x+1) <$> list 
 
+-- example of data structure
 data Vettore = Vettore Int Int  deriving Show
 data Matrice = Matrice Vettore Vettore  deriving Show
 
