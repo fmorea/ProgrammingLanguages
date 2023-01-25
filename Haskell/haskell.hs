@@ -399,3 +399,17 @@ foldrPL _ acc (PriceList []) = acc
 foldrPL f acc (PriceList (x:xs)) = 
     f (fst x) (foldrPL f acc (PriceList (xs)))
 
+
+elem1 :: (Ord a, Num a, Eq a) => [a] -> a -> Bool
+elem1 l x = elemH l x False
+
+elemH :: (Ord a, Num a, Eq a) => [a] -> a -> Bool -> Bool
+elemH [] _ _ = False 
+elemH (y:ys) x acc 
+    | x == y = True 
+    | x /= y = elemH ys x acc
+
+-- you could use foldl as iterator to make the same thing with
+-- a one liner !!! (try at home)
+
+

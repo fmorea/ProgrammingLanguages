@@ -55,6 +55,31 @@
     (else 'equal)
 )
 
+(define (make-adder n)
+    (lambda (x) (+ x n)))
+
+(define (iterator vec)
+    (let ((cur 0)
+          (top (vector-length vec)))
+        (lambda ()
+            (if (= cur top) 
+            'end
+            (let ((v_curr (vector-ref vec cur)))
+                (set! cur (+ cur 1))
+                v_curr)
+            )
+        )
+    )
+)
+
+(define-syntax ++
+    (syntax-rules ()
+    ((_ x)
+     (begin
+      (set! x (+ x 1))
+      x))))
+
+((let ((y 0)) (lambda (x) (+ x y))) 1)
 
 
 
